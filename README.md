@@ -3,6 +3,8 @@
 ## 📘 Task Overview
 A simple flashcard app using an external API. The app has two views: NameColor and Flashcards. You can easily switch between the views with a button.The flashcard view lets you flip between Finnish and English words and you can save your favorite cards to the database with a button click.  The NameColor view lets you add people and their favorite colors, edit entries and delete them. 
 
+___
+
 
 ### ✅ Features
 - Toggle between two views: NameColor list and Flashcards
@@ -13,6 +15,7 @@ A simple flashcard app using an external API. The app has two views: NameColor a
 - Add people and their favorite colors to the database
 - Edit or delete any person you've added
 
+____
 
 ### 🛠️ Tech Stack
 * Laravel
