@@ -24,8 +24,8 @@ function Flashcard({ word, onFavoriteToggled }) {
         >
             {flipped ? (
                 <div>
-                    <h2 className>{word.finnish}</h2>
-                    <h2 className>{word.english}</h2>
+                    <h2>{word.finnish}</h2>
+                    <h2>{word.english}</h2>
                     <h3>{word.example}</h3>
                     <button
                         onClick={handleToggleFavorite}

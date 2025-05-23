@@ -117,7 +117,7 @@ function App() {
 
                     <ul>
                         {nameColors.map((item) => (
-                            <li>
+                              <li key={item.id}>
                                 {item.name} - {item.color}
                                 {editingId === item.id ? (
                                     <>
@@ -169,7 +169,7 @@ function App() {
                 <div className="flashcardContainer">
                     {words ? (
                         words.map((word) => (
-                            <Flashcard word={word} />
+                            <Flashcard key={word.id} word={word} />
                         ))
                     ) : (
                         <p>No flashcards to display</p>

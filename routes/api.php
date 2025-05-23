@@ -12,6 +12,8 @@ Route::apiResource('name-colors', NameColorController::class);
 Route::apiResource('words', WordController::class);
 
 
+
+
 Route::get('/words', function () {
     $response = Http::withHeaders([
         'x-api-key' => env('FINNFAST_API_KEY'),
@@ -30,4 +32,4 @@ Route::get(
 )->middleware('auth:sanctum');
 
 
-Route::post('/words/{ApiId}/favorite', [FavoriteController::class, 'toggle'])->name('words.index');
+Route::post('/words/{ApiId}/favorite', [WordController::class, 'words'])->name('words.index');
