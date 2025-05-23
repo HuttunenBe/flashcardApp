@@ -16,6 +16,7 @@ A simple flashcard app using an external API. The app has two views: NameColor a
 
 ### 🛠️ Tech Stack
 * Laravel
+* PHP
 * React
 * MySQL
 * External API (Finnfast API)
