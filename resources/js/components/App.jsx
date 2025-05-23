@@ -90,12 +90,13 @@ function App() {
         <div>
             <h1>Choose your view</h1>
             <div className="viewToggle">
-            <button onClick={() => setView("nameColor")}>
-                Name Color View
-            </button>
-            <button onClick={() => setView("flashcard")}>Flashcard View</button>
+                <button onClick={() => setView("nameColor")}>
+                    Name Color View
+                </button>
+                <button onClick={() => setView("flashcard")}>
+                    Flashcard View
+                </button>
             </div>
-
 
             {view === "nameColor" && (
                 <>
@@ -117,7 +118,7 @@ function App() {
 
                     <ul>
                         {nameColors.map((item) => (
-                              <li key={item.id}>
+                            <li key={item.id}>
                                 {item.name} - {item.color}
                                 {editingId === item.id ? (
                                     <>
@@ -144,7 +145,6 @@ function App() {
                                     </>
                                 ) : (
                                     <>
-                                        
                                         <button
                                             onClick={() => startEditing(item)}
                                         >
@@ -179,6 +179,5 @@ function App() {
         </div>
     );
 }
-
 
 export default App;

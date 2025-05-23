@@ -1,9 +1,8 @@
 <?php
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NameController;
-use App\Http\Controllers\Api\WordController;
-use App\Http\Controllers\Api\FavoriteController;
-  
+
 
 Route::get('/blade', [NameController::class, 'index'])->name('words.index');
 Route::post('/blade/store', [NameController::class, 'store'])->name('words.store');
@@ -14,6 +13,3 @@ Route::put('/blade/update/{id}', [NameController::class, 'update'])->name('words
 Route::get('/{any}', function () {
     return view('app');
 })->where('any', '.*');
-
-?>
-

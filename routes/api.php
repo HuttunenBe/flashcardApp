@@ -5,13 +5,10 @@ use App\Http\Controllers\Api\NameColorController;
 use App\Http\Controllers\Api\WordController;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Api\FavoriteController;
 
 Route::apiResource('name-colors', NameColorController::class);
 
 Route::apiResource('words', WordController::class);
-
-
 
 
 Route::get('/words', function () {

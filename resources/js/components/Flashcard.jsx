@@ -17,11 +17,7 @@ function Flashcard({ word, onFavoriteToggled }) {
     };
 
     return (
-        <div
-            className="flashcard"
-            onClick={() => setFlipped(!flipped)}
-
-        >
+        <div className="flashcard" onClick={() => setFlipped(!flipped)}>
             {flipped ? (
                 <div>
                     <h2>{word.finnish}</h2>
