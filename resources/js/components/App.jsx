@@ -165,6 +165,8 @@ function App() {
                 </>
             )}
 
+        
+
             {view === "flashcard" && (
                 <div className="flashcardContainer">
                     {words ? (

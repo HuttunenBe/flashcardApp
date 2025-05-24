@@ -5,7 +5,7 @@ import "../../css/styles.css";
 function Flashcard({ word, onFavoriteToggled }) {
     const [flipped, setFlipped] = useState(false);
 
-    const handleToggleFavorite = async (e) => {
+   const handleToggleFavorite = async (e) => {
         try {
             const response = await axios.post(`/api/words/${word.id}/favorite`);
             if (onFavoriteToggled) {

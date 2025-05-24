@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace App\Http\Controllers\Api;
 
@@ -10,7 +11,7 @@ use Illuminate\Support\Facades\Http;
 class WordController extends Controller
 {
 
-    public function words($apiWord)
+    public function saveFavorite($apiWord)
     {
 
         $response = Http::withHeaders([
@@ -26,10 +27,12 @@ class WordController extends Controller
             'finnish' => $favoritedData['finnish'],
             'english' => $favoritedData['english'],
             'example' => $favoritedData['example'],
+          
+    
         ]);
 
 
 
-        return response()->json(null, 204);
+        return response()->json(null, 200);
     }
 }

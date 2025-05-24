@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\NameColorController;
@@ -28,5 +29,5 @@ Route::get(
     }
 )->middleware('auth:sanctum');
 
-
-Route::post('/words/{ApiId}/favorite', [WordController::class, 'words'])->name('words.index');
+Route::get('/words/favorites', [WordController::class, 'favorites'])->name('words.favorites');
+Route::post('/words/{apiId}/favorite', [WordController::class, 'toggleFavorite'])->name('words.toggleFavorite');
