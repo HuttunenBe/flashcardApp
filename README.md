@@ -14,6 +14,7 @@ ___
 - Flip flashcards between Finnish and English
 - Add people and their favorite colors to the database
 - Edit or delete any person you've added
+- Responsive design for different screen sizes
 
 ____
 
