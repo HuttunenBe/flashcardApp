@@ -4,6 +4,7 @@ import Flashcard from "./Flashcard";
 import "../../css/styles.css";
 
 function App() {
+    // useState variables
     const [nameColors, setNameColors] = useState([]);
     const [error, setError] = useState(null);
     const [name, setName] = useState("");
@@ -14,6 +15,7 @@ function App() {
     const [editName, setEditName] = useState("");
     const [editColor, setEditColor] = useState("");
 
+    // Change views
     useEffect(() => {
         if (view === "nameColor") {
             fetchNameColors();
@@ -22,6 +24,7 @@ function App() {
         }
     }, [view]);
 
+    // Fetch name_colors
     const fetchNameColors = async () => {
         try {
             const response = await axios.get("/api/name-colors");
@@ -31,6 +34,7 @@ function App() {
         }
     };
 
+    // Fetch flashcard words
     const fetchWords = async () => {
         try {
             const response = await axios.get("/api/words");
@@ -40,6 +44,7 @@ function App() {
         }
     };
 
+    // Submit new name_color
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -52,6 +57,7 @@ function App() {
         }
     };
 
+    //Delete name_color
     const handleDelete = async (id) => {
         try {
             await axios.delete(`/api/name-colors/${id}`);
@@ -61,18 +67,21 @@ function App() {
         }
     };
 
+    // Start editing
     const startEditing = (item) => {
         setEditingId(item.id);
         setEditName(item.name);
         setEditColor(item.color);
     };
 
+    // Cancel editing
     const cancelEditing = () => {
         setEditingId();
         setEditName("");
         setEditColor("");
     };
 
+    // Save edit
     const saveEdit = async () => {
         try {
             await axios.put(`/api/name-colors/${editingId}`, {
@@ -90,7 +99,7 @@ function App() {
         <div>
             <h1>Choose your view</h1>
             <div className="viewToggle">
-                <button onClick={() => setView("nameColor")}>
+                <button onClick={() => setView("nameColor")}> 
                     Name Color View
                 </button>
                 <button onClick={() => setView("flashcard")}>
@@ -165,7 +174,7 @@ function App() {
                 </>
             )}
 
-        
+            {error}
 
             {view === "flashcard" && (
                 <div className="flashcardContainer">

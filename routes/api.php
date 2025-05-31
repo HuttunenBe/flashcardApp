@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 use Illuminate\Support\Facades\Route;
@@ -11,7 +12,7 @@ Route::apiResource('name-colors', NameColorController::class);
 
 Route::apiResource('words', WordController::class);
 
-
+// Fetch all words from API
 Route::get('/words', function () {
     $response = Http::withHeaders([
         'x-api-key' => env('FINNFAST_API_KEY'),
@@ -29,5 +30,6 @@ Route::get(
     }
 )->middleware('auth:sanctum');
 
+// Routes for favoriting
 Route::get('/words/favorites', [WordController::class, 'favorites'])->name('words.favorites');
 Route::post('/words/{apiId}/favorite', [WordController::class, 'toggleFavorite'])->name('words.toggleFavorite');
