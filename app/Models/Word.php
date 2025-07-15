@@ -11,5 +11,4 @@ class Word extends Model
 {
 
   protected $fillable = ['finnish', 'english', 'example'];
-
 }
