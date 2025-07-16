@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class NameController extends Controller
 {
 
-    
+
     public function index()
     {
         $nameColors = NameColor::all();

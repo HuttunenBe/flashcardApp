@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Http;
 class WordController extends Controller
 {
 
-    public function saveFavorite($apiWord)
+    public function toggleFavorite($apiWord)
     {
         //Call API and get words data
         $response = Http::withHeaders([
@@ -25,14 +25,16 @@ class WordController extends Controller
         $favoritedData = $response->json();
 
         //Save word in local database but only if it doesn't exist
-        $favoritedData = Word::firstOrCreate([
+        $word = Word::firstOrCreate([
             'finnish' => $favoritedData['finnish'],
             'english' => $favoritedData['english'],
             'example' => $favoritedData['example'],
-
-
         ]);
+        $message = $word->wasRecentlyCreated
+            ? "Word has been added to favorites."
+            : "Word is already in favorites.";
 
+        return response()->json(['message' => $message], 200);
 
 
         return response()->json(null, 200);
