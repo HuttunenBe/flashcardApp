@@ -33,7 +33,6 @@ ____
 
   <img 
     src="laravelFlashcardGif.gif" 
-    alt="Laravel Flashcard Demo" 
     style="width: 80%;" 
   />
 
