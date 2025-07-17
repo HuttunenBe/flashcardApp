@@ -32,7 +32,7 @@ ____
 ## 🚀 Preview
 
   <img 
-    src="laravelFlashcardGif.gif" 
+    src="gifFlashcardApp.gif" 
     style="width: 80%;" 
   />
 
