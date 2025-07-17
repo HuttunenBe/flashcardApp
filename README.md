@@ -24,3 +24,24 @@ ____
 * React
 * MySQL
 * External API (Finnfast API)
+
+ _____
+
+
+
+## 🚀 Preview
+
+  <img 
+    src="laravelFlashcardGif.gif" 
+    alt="Laravel Flashcard Demo" 
+    style="width: 80%;" 
+  />
+
+Watch Full Demo on YouTube <a href="https://youtu.be/IGQrde70rYs"> Here!
+</a>
+
+
+
+
+
+
