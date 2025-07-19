@@ -6,7 +6,7 @@ A simple flashcard app using an external API. The app has two views: NameColor a
 ___
 
  
-### ✅ Features
+## ✅ Features
 - Toggle between two views: NameColor list and Flashcards
 - Fetch Finnish vocabulary words from the Finnfast API and display them
 - Save favorite flashcards to the database
@@ -24,12 +24,12 @@ ___
     style="width: 80%;" 
   />
 
-#### 🎬 [Watch Full Demo on YouTube!](https://youtu.be/IGQrde70rYs)
+### 🎬 [Watch Full Demo on YouTube!](https://youtu.be/IGQrde70rYs)
 
 
 ____
 
-### 🛠️ Tech Stack
+## 🛠️ Tech Stack
 * Laravel
 * PHP
 * React
