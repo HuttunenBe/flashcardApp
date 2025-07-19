@@ -5,7 +5,7 @@ A simple flashcard app using an external API. The app has two views: NameColor a
 
 ___
 
- 
+  
 ## ✅ Features
 - Toggle between two views: NameColor list and Flashcards
 - Fetch Finnish vocabulary words from the Finnfast API and display them
