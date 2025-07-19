@@ -16,6 +16,17 @@ ___
 - Edit or delete any person you've added
 - Responsive design for different screen sizes
 
+  
+## 🚀 Preview
+
+  <img 
+    src="gifFlashcardApp.gif" 
+    style="width: 80%;" 
+  />
+
+#### 🎬 [Watch Full Demo on YouTube!](https://youtu.be/IGQrde70rYs)
+
+
 ____
 
 ### 🛠️ Tech Stack
@@ -25,18 +36,7 @@ ____
 * MySQL
 * External API (Finnfast API)
 
- _____
 
-
-
-## 🚀 Preview
-
-  <img 
-    src="gifFlashcardApp.gif" 
-    style="width: 80%;" 
-  />
-
-#### 🎬 [Watch Full Demo on YouTube!](https://youtu.be/IGQrde70rYs)
 
 
 
