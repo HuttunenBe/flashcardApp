@@ -25,3 +25,4 @@ ____
 * React
 * MySQL
 * External API (Finnfast API)
+
