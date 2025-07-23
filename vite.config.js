@@ -5,19 +5,20 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
     plugins: [
         laravel({
-            input: ["resources/js/app.jsx"],
+          input: ['resources/css/style.css', 'resources/js/app.jsx'],
             refresh: true,
         }),
         react(),
     ],
-    server: {
-        host: "namecolor.test",
-        port: 5199,
-        strictPort: true,
-        hmr: {
-            host: "namecolor.test",
-            protocol: "http",
-            port: 5199,
-        },
+server: {
+    host: "localhost",
+    port: 3000,
+    strictPort: true,
+    hmr: {
+        host: "localhost",
+        protocol: "http",
+        port: 3000,
     },
+},
+
 });

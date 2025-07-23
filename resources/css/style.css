@@ -1,0 +1,321 @@
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ff66b2 0%, #ff99cc 100%);
+    font-family: "Courier New", monospace;
+    color: #ff66b2;
+}
+#root,
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 700px;
+    width: 100%;
+    background-color: rgba(255, 182, 217, 0.9);
+    border-radius: 1rem;
+    padding: 2rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 3px solid #ff3399;
+    box-shadow: 5px 5px 0px #ff99cc, 10px 10px 0px #ff3399;
+}
+
+h1,
+h2,
+h3 {
+    text-align: center;
+}
+
+h1 {
+    font-size: 3rem;
+    text-transform: uppercase;
+    font-family: "Brush Script MT", cursive, sans-serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    letter-spacing: 3px;
+    color: #ff0066;
+    margin-bottom: 2rem;
+}
+
+h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #ff3399;
+}
+
+h3 {
+    font-size: 1.6rem;
+    color: #ff66b2;
+    font-weight: 600;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffe6f0;
+    padding: 1.5rem;
+    gap: 1rem;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+    border: 2px solid #ff3399;
+    box-shadow: 5px 5px 0px #ff66aa, 10px 10px 0px #00a3a3;
+}
+
+input {
+    background-color: #ffffff;
+    font-family: "Courier New", monospace;
+    font-size: 1.1rem;
+    outline: none;
+    padding: 0.9rem 1rem;
+    margin-bottom: 0.5rem;
+    border: 2px solid #ff3399;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    color: #cc0055;
+    transition: all 0.3s ease;
+    box-shadow: 2px 2px 0px #ff66b2, 5px 5px 0px #ff3399;
+}
+
+input:focus {
+    border-color: #ff0066;
+    box-shadow: 0 0 8px #ff0066;
+}
+
+button {
+    background-color: #ff3399;
+    font-family: Courier, monospace;
+    border: 3px solid #cc0055;
+    padding: 0.5rem 1.5rem;
+    margin: 0.2rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-align: center;
+    color: #fff0f6;
+    transition: all 0.3s ease;
+    box-shadow: 3px 3px 0px #ff0066;
+}
+
+button:hover {
+    color: #ffff00;
+    transform: translateY(-4px);
+    background-color: #ff0066;
+    border-color: #cc0055;
+}
+
+.viewToggle {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+    gap: 1rem;
+}
+
+.editInputs {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 1.1rem;
+    flex-grow: 1;
+    min-width: 200px;
+    font-weight: 600;
+    color: #cc0055;
+    font-family: "Courier New", monospace;
+}
+
+.editButtons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.actionButtons {
+    gap: 0rem;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+ul,
+li {
+    font-weight: 700;
+    font-size: 1.2rem;
+    letter-spacing: -1.2px;
+    color: #d10546;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff2f9;
+    width: 100%;
+    max-width: 600px;
+    padding: 1.4rem 1rem;
+    margin: auto 0;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #ff4db8;
+    flex-wrap: wrap;
+}
+
+li button {
+    background-color: #ff3399;
+    color: #fff0f6;
+}
+
+.loading {
+    border: 8px solid hsl(0, 0%, 89%);
+    border-top: 8px solid #f14ba9;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 0 auto;
+    animation: spin 1.3s linear infinite;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 768px) {
+    button {
+        width: 100%;
+    }
+
+    li {
+        flex-direction: column;
+        margin: auto 0;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+        font-weight: 700;
+    }
+    .editInputs {
+        flex-direction: column;
+    }
+}
+
+/*Flashcard*/
+
+.flashcard {
+    max-width: 500px;
+    width: 100%;
+    background-color: #ffe6f0;
+    text-align: center;
+    font-family: "Courier New", monospace;
+    border: 3px solid #ff3399;
+    color: #cc0055;
+    border-radius: 1rem;
+    padding: 2rem;
+    margin: 1rem auto;
+    box-shadow: 6px 6px 0px #ff99cc, 12px 12px 0px #ff3399;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.flashcard:hover {
+    transform: translateY(-5px);
+    box-shadow: 8px 8px 0px #ff66b2, 14px 14px 0px #ff3399;
+}
+
+.flashcard h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ff0066;
+    margin: 0.5rem 0;
+}
+
+.flashcard h3 {
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: #cc0055;
+    margin-top: 1rem;
+}
+
+.favoriteButton,
+.deleteButton {
+    background-color: #ff3399;
+    font-family: Courier, monospace;
+    color: #fff0f6;
+    padding: 0.6rem 1.4rem;
+    border: 3px solid #cc0055;
+    font-size: 1.1rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    margin-top: 1.5rem;
+    box-shadow: 3px 3px 0px #ff66b2, 6px 6px 0px #ff3399;
+    transition: all 0.3s ease;
+}
+
+.favoriteButton:hover,
+.deleteButton:hover {
+    transform: translateY(-3px);
+    background-color: #ff0066;
+    border-color: #cc0055;
+    color: #ffff00;
+}
+
+.errorMessage {
+    background-color: #ffe6f0;
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-align: center;
+    border: 2px solid #ff3399;
+    padding: 1rem 1.5rem;
+    border-radius: 0.8rem;
+    color: #ff004d;
+}
+
+.flashcardError {
+    text-align: center;
+    color: #ff004d;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.messageText,
+.deleteText {
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-decoration: underline;
+    color: #cc0055;
+    background-color: #d4edda;
+    margin-top: 1rem;
+    padding: 1rem;
+    border: 2px solid #ff3399;
+    border-radius: 1rem;
+    box-shadow: 2px 2px 0px #ff66b2, 4px 4px 0px #ff3399;
+}
+
+@media (max-width: 768px) {
+    .flashcard {
+        max-width: 90vw;
+        margin: 1.6rem auto;
+        padding: 1rem 0rem;
+    }
+    .favoriteButton {
+        width: 60%;
+    }
+
+    .messageText {
+        width: 80%;
+        margin: 0.5rem auto;
+    }
+}

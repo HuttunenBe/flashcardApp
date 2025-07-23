@@ -9,13 +9,14 @@ ___
 ### ✅ Features
 - Toggle between two views: NameColor list and Flashcards
 - Fetch Finnish vocabulary words from the Finnfast API and display them
-- Save favorite flashcards to the database
+- Save favorites and delete flashcards from the database.
 - Prevents duplicate favorites from being saved
 - Flip flashcards between Finnish and English
 - Add people and their favorite colors to the database
 - Edit or delete any person you've added
 - Responsive design for different screen sizes
 
+Currently working on: Deleting cards and displaying new ones.
 ____
 
 ### 🛠️ Tech Stack

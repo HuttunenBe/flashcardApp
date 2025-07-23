@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Flashcard from "./Flashcard";
-import "../../css/styles.css";
+import "../../css/style.css";
 
 function App() {
-    // useState variables
     const [nameColors, setNameColors] = useState([]);
     const [error, setError] = useState(null);
     const [name, setName] = useState("");
@@ -14,8 +13,8 @@ function App() {
     const [editingId, setEditingId] = useState(null);
     const [editName, setEditName] = useState("");
     const [editColor, setEditColor] = useState("");
+    const [loading, setLoading] = useState(false);
 
-    // Change views
     useEffect(() => {
         if (view === "nameColor") {
             fetchNameColors();
@@ -24,27 +23,29 @@ function App() {
         }
     }, [view]);
 
-    // Fetch name_colors
     const fetchNameColors = async () => {
         try {
             const response = await axios.get("/api/name-colors");
             setNameColors(response.data);
+            setError(null);
         } catch (error) {
             setError("Failed to fetch entries");
         }
     };
 
-    // Fetch flashcard words
     const fetchWords = async () => {
         try {
+            setLoading(true); //Display loader
             const response = await axios.get("/api/words");
-            setWords(response.data.words);
+            setWords(response.data.words || []); // Handle case if response.data.words is undefined
+            setError(null);
         } catch (error) {
             setError("Failed to fetch words");
+        } finally {
+            setLoading(false); //Hide loader
         }
     };
 
-    // Submit new name_color
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -52,44 +53,33 @@ function App() {
             setName("");
             setColor("");
             fetchNameColors();
+            setError(null);
         } catch (error) {
             setError("Failed to add entry");
         }
     };
 
-    //Delete name_color
-    const handleDelete = async (id) => {
-        try {
-            await axios.delete(`/api/name-colors/${id}`);
-            fetchNameColors();
-        } catch {
-            setError("Failed to delete entry");
-        }
-    };
-
-    // Start editing
     const startEditing = (item) => {
         setEditingId(item.id);
         setEditName(item.name);
         setEditColor(item.color);
     };
 
-    // Cancel editing
     const cancelEditing = () => {
-        setEditingId();
+        setEditingId(null);
         setEditName("");
         setEditColor("");
     };
 
-    // Save edit
     const saveEdit = async () => {
         try {
             await axios.put(`/api/name-colors/${editingId}`, {
                 name: editName,
                 color: editColor,
             });
-            setEditingId();
+            setEditingId(null);
             fetchNameColors();
+            setError(null);
         } catch {
             setError("Failed to update entry");
         }
@@ -99,7 +89,7 @@ function App() {
         <div>
             <h1>Choose your view</h1>
             <div className="viewToggle">
-                <button onClick={() => setView("nameColor")}> 
+                <button onClick={() => setView("nameColor")}>
                     Name Color View
                 </button>
                 <button onClick={() => setView("flashcard")}>
@@ -115,12 +105,14 @@ function App() {
                             placeholder="Name"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
+                            required
                         />
                         <input
                             type="text"
                             placeholder="Color"
                             value={color}
                             onChange={(e) => setColor(e.target.value)}
+                            required
                         />
                         <button type="submit">Add</button>
                     </form>
@@ -128,44 +120,54 @@ function App() {
                     <ul>
                         {nameColors.map((item) => (
                             <li key={item.id}>
-                                {item.name} - {item.color}
                                 {editingId === item.id ? (
                                     <>
-                                        <input
-                                            type="text"
-                                            value={editName}
-                                            onChange={(e) =>
-                                                setEditName(e.target.value)
-                                            }
-                                            placeholder="Edit name"
-                                        />
-                                        <input
-                                            type="text"
-                                            value={editColor}
-                                            onChange={(e) =>
-                                                setEditColor(e.target.value)
-                                            }
-                                            placeholder="Edit color"
-                                        />
-                                        <button onClick={saveEdit}>Save</button>
-                                        <button onClick={cancelEditing}>
-                                            Cancel
-                                        </button>
+                                        <div className="editInputs">
+                                            <input
+                                                type="text"
+                                                value={editName}
+                                                onChange={(e) =>
+                                                    setEditName(e.target.value)
+                                                }
+                                                placeholder="Edit name"
+                                            />
+                                            <input
+                                                type="text"
+                                                value={editColor}
+                                                onChange={(e) =>
+                                                    setEditColor(e.target.value)
+                                                }
+                                                placeholder="Edit color"
+                                            />
+                                        </div>
+                                        <div className="editButtons">
+                                            <button onClick={saveEdit}>
+                                                Save
+                                            </button>
+                                            <button onClick={cancelEditing}>
+                                                Cancel
+                                            </button>
+                                        </div>
                                     </>
                                 ) : (
                                     <>
-                                        <button
-                                            onClick={() => startEditing(item)}
-                                        >
-                                            Edit
-                                        </button>
-                                        <button
-                                            onClick={() =>
-                                                handleDelete(item.id)
-                                            }
-                                        >
-                                            Delete
-                                        </button>
+                                        {item.name} - {item.color}
+                                        <div className="actionButtons">
+                                            <button
+                                                onClick={() =>
+                                                    startEditing(item)
+                                                }
+                                            >
+                                                Edit
+                                            </button>
+                                            <button
+                                                onClick={() =>
+                                                    handleDelete(item.id)
+                                                }
+                                            >
+                                                Delete
+                                            </button>
+                                        </div>
                                     </>
                                 )}
                             </li>
@@ -174,16 +176,43 @@ function App() {
                 </>
             )}
 
-            {error}
+            {error && <div className="errorMessage">{error}</div>}
 
             {view === "flashcard" && (
                 <div className="flashcardContainer">
-                    {words ? (
+                    {loading ? (
+                        <p className="loading"></p>
+                    ) : error ? (
+                        <p>{error}</p>
+                    ) : words && words.length > 0 ? (
                         words.map((word) => (
-                            <Flashcard key={word.id} word={word} />
+                            <Flashcard
+                                key={word.id}
+                                word={word}
+                                onFavoriteToggled={(id) => {
+                                    setWords((prevWords) =>
+                                        prevWords.map((word) =>
+                                            word.id === id
+                                                ? {
+                                                      ...word,
+                                                      isFavorite:
+                                                          !word.isFavorite,
+                                                  }
+                                                : word
+                                        )
+                                    );
+                                }}
+                                onClose={(id) =>
+                                    setWords((prev) =>
+                                        prev.filter((word) => word.id !== id)
+                                    )
+                                }
+                            />
                         ))
                     ) : (
-                        <p>No flashcards to display</p>
+                        <p className="flashcardError">
+                            No flashcards to display
+                        </p>
                     )}
                 </div>
             )}
