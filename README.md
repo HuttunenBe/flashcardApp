@@ -5,7 +5,7 @@ A simple flashcard app using an external API. The app has two views: NameColor a
 
 ___
 
-<img src="hrAppImage.png" alt="app Screenshot">
+![App Screenshot](gifFlashcardApp.gif)
 
 
 ### ✅ Features
